@@ -1,0 +1,70 @@
+{{> _navbar}}
+
+<div class="container p-3 my-3 border">
+  <div class="container-xl">
+    <div class="row">
+      <div class="col">
+        <h4>BOOKINGS LIST</h4>
+      </div>
+      <div class="col" style="padding-bottom: 15px">
+        {{#if nextStep}}
+          <button type="button" class="btn btn-outline-success btn-sm float-right" data-toggle="modal" data-target="#createBookingStep2Modal">
+            Create new booking: step 2
+          </button>
+          {{> _createBookingStep2Modal}}
+
+          <script type="text/javascript">
+            $(window).on('load',function(){
+                $('#createBookingStep2Modal').modal('show');
+            });
+          </script>
+
+        {{else}}
+
+          <button type="button" class="btn btn-outline-success btn-sm float-right" data-toggle="modal" data-target="#createBookingStep1Modal">
+            Create new booking
+          </button><br>
+
+          {{> _createBookingStep1Modal}}
+
+          {{#if addNewBookingError}}
+            <script type="text/javascript">
+              $(window).on('load',function(){
+                  $('#createBookingStep1Modal').modal('show');
+              });
+            </script>
+          {{/if}}
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="table-responsive table-hover">
+      <table class="table table-striped text-center">
+        <tr>
+          {{#each sortFields}}
+            <th>{{this.tableHeader}}
+                {{>__tableAscDesc}}
+            </th>
+          {{/each}}
+          <th>Manage</th>
+        </tr>
+        {{#each bookingsOBJ.rows}}
+          <tr>
+            <td>{{this.contractor.contractorName}}</td>
+            <td>{{this.location.country}}</td>
+            <td>{{this.location.city}} {{this.location.postalCode}};<br> {{this.location.streetName}} {{this.location.streetNumber}}</td>
+            <td>{{dateFrom}} - {{dateTO}}</td>
+            <td>
+              <button id={{this.id}} type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteBookingModal{{this.id}}">
+                Delete
+              </button>
+              {{> _deleteBookingModal}}
+            </td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+
+    {{> _paginationPartial}}
+  </div>
+</div>

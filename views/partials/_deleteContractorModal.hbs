@@ -1,0 +1,28 @@
+<!-- Modal -->
+<div class="modal fade" id="deleteContractorModal{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Contractor deletion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete contractor:<br>
+        <h3>{{this.contractorName}}</h3><br>
+        Owner:<br>
+        <h5>{{this.contractorOwe}}</h5>
+      </div>
+
+      <form action="/contractors/delete/{{this.id}}" method="post">
+        <div class="modal-footer">
+          <div class="col align-self-end">
+            <button type="button" class="btn btn-secondary btn-sm float-left" data-dismiss="modal">Cancel</button>
+            <input class="btn btn-primary btn-sm float-right" type="submit" value="Submit">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

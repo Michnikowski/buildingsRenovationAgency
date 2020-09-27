@@ -1,0 +1,54 @@
+<!-- Modal -->
+<div class="modal fade" id="createLocationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create new location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="/locations/createLocation" method="post">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <input name="country" type="text" class="form-control" placeholder="Country">
+              <small class="form-text text-muted" style="text-align: center">country...</small>
+            </div>
+            <div class="form-group col-md-4">
+              <input name="city" type="text" class="form-control" placeholder="City">
+              <small class="form-text text-muted" style="text-align: center">city...</small>
+            </div>
+            <div class="form-group col-md-4">
+              <input name="postalCode" type="text" class="form-control" placeholder="Postal code">
+              <small class="form-text text-muted" style="text-align: center">postal code...</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <input name="streetName" type="text" class="form-control" placeholder="Street name">
+                <small class="form-text text-muted" style="text-align: center">street name...</small>
+              </div>
+              <div class="form-group col-md-4">
+                <input name="streetNumber" type="text" class="form-control" placeholder="Street number">
+                <small class="form-text text-muted" style="text-align: center">street number...</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col align-self-end">
+                <button type="button" class="btn btn-secondary btn-sm float-left" data-dismiss="modal">Cancel</button>
+                <input  class="btn btn-primary btn-sm float-right" type="submit" value="Submit">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

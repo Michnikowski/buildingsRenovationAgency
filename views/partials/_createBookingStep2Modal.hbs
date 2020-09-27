@@ -1,0 +1,62 @@
+<!-- Modal -->
+<div class="modal fade" id="createBookingStep2Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create new booking:<br> 
+        choose company and location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="/bookings/createBooking" method="post">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input  value="{{dateFrom}}" name="dateFrom" type="date" class="form-control" placeholder="Date from" readonly>
+              <small class="form-text text-muted" style="text-align: center">date from...</small>
+            </div>
+            <div class="form-group col-md-6">
+              <input value="{{dateTO}}" name="dateTO" type="date" class="form-control" placeholder="Date to" readonly>
+              <small class="form-text text-muted" style="text-align: center">date from...</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <select name="contractorsID" class="form-control">
+                  <option value="">Select contractor</option>
+                  {{#each contractorData}}
+                    <option value="{{this.id}}">{{this.contractorName}}</option>
+                  {{/each}}
+                </select>
+                <small class="form-text text-muted" style="text-align: center">contractor</small>
+              </div>
+
+              <div class="form-group col-md-6">
+                <select name="locationsID" class="form-control">
+                  <option value="">Select location</option>
+                  {{#each locationData}}
+                    <option value="{{this.id}}">{{this.country}} {{this.city}} {{this.postalCode}}; {{this.streetName}} {{this.streetNumber}}</option>
+                  {{/each}}
+                </select>
+                <small class="form-text text-muted" style="text-align: center">location</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col align-self-end">
+                <input class="btn btn-primary btn-sm float-right" type="submit" value="Submit">
+                <button type="button" class="btn btn-secondary btn-sm float-left" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+{{> _navbar}}
+
+<div class="container p-3 my-3 border">
+  <div class="container-xl">
+    <div class="row">
+      <div class="col">
+        <h4>CONTRACTORS LIST</h4>
+      </div>
+
+      <div class="col" style="padding-bottom: 15px">
+        <button type="button" class="btn btn-outline-success btn-sm float-right" data-toggle="modal" data-target="#createContractorModal">
+          Create new contractor
+        </button>
+        {{> _createContractorModal}}
+      </div>
+    </div>
+
+    <div class="table-responsive table-hover">
+      <table class="table table-striped text-center">
+        <tr>
+          {{#each sortFields}}
+            <th>{{this.tableHeader}}
+                {{>__tableAscDesc}}
+            </th>
+          {{/each}}
+
+          <th>Manage</th>
+        </tr>
+        {{#each contractorsOBJ.rows}}
+          <tr>
+            <td>{{this.contractorName}}</td>
+            <td>{{this.contractorOwe}}</td>
+            <td>
+              <button id={{this.id}} type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#editContractorModal{{this.id}}">
+                Edit
+              </button>
+              {{> _editContractorModal}}
+
+              <button id={{this.id}} type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteContractorModal{{this.id}}">
+                Delete
+              </button>
+              {{> _deleteContractorModal}}
+            </td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+
+    {{> _paginationPartial}}
+  </div>
+</div>

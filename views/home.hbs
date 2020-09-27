@@ -1,0 +1,69 @@
+{{> _navbar}}
+
+<div class="container p-3 my-3 border">
+  <div class="row">
+    <div class="col">
+      <h4 class="text-center">TOP 5 CONTRACTORS</h4>
+      <h6 class="text-center">(all bookings)</h6>
+        <div class="table-responsive table-hover">
+          <table class="table table-striped text-center">
+            <tr>
+              <th>Contractor</th>
+              <th>Count</th>
+            </tr>
+            {{#each top5all}}
+              <tr>
+                <td>{{this.contractor.contractorName}}</td>
+                <td>{{contractorCount}}</td>
+              </tr>
+            {{/each}}
+          </table>
+        </div>
+    </div>
+
+    <div class="col">
+      <h4 class="text-center">TOP 5 CONTRACTORS</h4>
+      <h6 class="text-center">(upcoming bookings)</h6>
+        <div class="table-responsive table-hover">
+          <table class="table table-striped text-center">
+            <tr>
+              <th>Contractor</th>
+              <th>Count</th>
+            </tr>
+            {{#each top5newest}}
+              <tr>
+                <td>{{this.contractor.contractorName}}</td>
+                <td>{{contractorCount}}</td>
+              </tr>
+            {{/each}}
+          </table>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h4 class="text-center">TOP 5 UPCOMINGS LOCATIONS</h4>
+        <div class="table-responsive table-hover">
+          <table class="table table-striped text-center">
+            <tr>
+              <th>Start from</th>
+              <th>Country</th>
+              <th>City</th>
+              <th>Street</th>
+              <th>Contractor</th>
+            </tr>
+            {{#each top5locations}}
+              <tr>
+                <td>{{dateFrom}}</td>
+                <td>{{this.location.country}}</td>
+                <td>{{this.location.city}}</td>
+                <td>{{this.location.streetName}} {{this.location.streetNumber}}</td>
+                <td>{{this.contractor.contractorName}}</td>
+              </tr>
+            {{/each}}
+          </table>
+        </div>
+      </div>
+    </div>
+</div>

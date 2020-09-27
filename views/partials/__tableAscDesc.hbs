@@ -1,0 +1,16 @@
+<div class="btn-group-vertical" style="float: right;">
+  <a type="button" class="btn btn-xs" value = "ASC" style="font-size:8px; padding: 2px; background:
+    {{#if this.activeSortOption}}
+      {{compare this.sortOption 'ASC' 'yellow'}}
+    {{else}}
+      none
+    {{/if}};"
+  href="{{this.baseURL}}/field/{{this.sortField}}/sort/ASC/page/{{this.pageNumber}}">▲</a>
+  <a type="button" class="btn btn-xs" value = "DESC" style="font-size:8px; padding: 2px; background:
+    {{#if this.activeSortOption}}
+      {{compare this.sortOption 'DESC' 'yellow'}}
+    {{else}}
+      none
+    {{/if}};"
+  href="{{this.baseURL}}/field/{{this.sortField}}/sort/DESC/page/{{this.pageNumber}}">▼</a>
+</div>

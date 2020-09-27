@@ -1,0 +1,21 @@
+<ul class="pagination justify-content-center">
+  <li class="page-item">
+    <a class="page-link"
+      href="{{pagination.prev.page}}"
+      >Previous
+    </a>
+  </li>
+
+  {{#each pages}}
+    <li class="page-item {{compare this.activePage true 'active'}}">
+      <a class="page-link" href="{{this.pageNumber}}">{{this.pageNumber}}</a>
+    </li>
+  {{/each}}
+
+  <li class="page-item">
+    <a class="page-link"
+      href="{{pagination.next.page}}"
+      >Next
+    </a>
+  </li>
+</ul>

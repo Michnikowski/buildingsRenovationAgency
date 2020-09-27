@@ -1,0 +1,51 @@
+{{> _navbar}}
+
+<div class="container p-3 my-3 border">
+  <div class="container-xl">
+    <div class="row">
+      <div class="col">
+        <h4>LOCATIONS LIST</h4></div>
+      <div class="col" style="padding-bottom: 15px">
+        <button type="button" class="btn btn-outline-success btn-sm float-right" data-toggle="modal" data-target="#createLocationModal">
+          Create new location
+        </button>
+        {{> _createLocationModal}}
+      </div>
+    </div>
+
+    <div class="table-responsive table-hover">
+      <table class="table table-striped text-center">
+        <tr>
+          {{#each sortFields}}
+            <th>{{this.tableHeader}}
+                {{>__tableAscDesc}}
+            </th>
+          {{/each}}
+          <th>Manage</th>
+        </tr>
+          {{#each locationsOBJ.rows}}
+            <tr>
+              <td>{{country}}</td>
+              <td>{{city}}</td>
+              <td>{{postalCode}}</td>
+              <td>{{streetName}}</td>
+              <td>{{streetNumber}}</td>
+              <td>
+                <button id={{this.id}} type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#editLocationModal{{this.id}}">
+                  Edit
+                </button>
+              {{> _editLocationModal}}
+
+              <button id={{this.id}} type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#deleteLocationModal{{this.id}}">
+                Delete
+              </button>
+              {{> _deleteLocationModal}}
+              </td>
+            </tr>
+          {{/each}}
+      </table>
+    </div>
+
+    {{> _paginationPartial}}
+  </div>
+</div>
